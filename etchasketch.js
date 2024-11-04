@@ -43,6 +43,9 @@ function drawBoxes(numberOfBoxes = 16) {
     
 function makeBoxesFillable(newBoxes) {
     for (let newBox of newBoxes) {
-        newBox.addEventListener("mouseenter", () => newBox.style.backgroundColor = "black");
+        let r = Math.floor(Math.random() * 255);
+        let g = Math.floor(Math.random() * 255);
+        let b = Math.floor(Math.random() * 255);
+        newBox.addEventListener("mouseenter", () => newBox.style.backgroundColor = `rgb(${r}, ${g}, ${b})`);
     }
 }
