@@ -12,6 +12,8 @@ body {
     flex-wrap: wrap;
     border: 1px solid black;
     width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .reset {

@@ -1,26 +1,38 @@
 const NUM = 16;
-const boxWidth = ((1 / NUM) * 100) + "%";
+drawBoxes(NUM);
 
-const container = document.querySelector(".container");
 const resetBtn = document.querySelector(".reset");
+
 resetBtn.addEventListener("click", () => {
-    prompt("How many boxes?");
-    for (let newBox of newBoxes) {
-        newBox.style.backgroundColor = "white";
+    let numberOfBoxes = +prompt("How many boxes?");
+    while (numberOfBoxes > 100) {
+        numberOfBoxes = +prompt("Please enter a number less than 100.");
     }
+    drawBoxes(numberOfBoxes);
 });
 
-// Initialize boxes
-for (let i = 0; i < (NUM ** 2); i++) {
-    const newBox = document.createElement("div");
-    newBox.style.width = `${boxWidth}`;
-    newBox.style.aspectRatio = `1 / 1`;
-    newBox.classList.add("newBox");
-    container.appendChild(newBox);
+function drawBoxes(numberOfBoxes = 16) {
+    const boxWidth = ((1 / numberOfBoxes) * 100) + "%";
+    const container = document.querySelector(".container");
+
+    // Clears existing boxes if there are any
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    };
+
+    for (let i = 0; i < (numberOfBoxes ** 2); i++) {
+        const newBox = document.createElement("div");
+        newBox.style.width = `${boxWidth}`;
+        newBox.style.aspectRatio = `1 / 1`;
+        newBox.classList.add("newBox");
+        container.appendChild(newBox);
+    }
+    let newBoxes = document.querySelectorAll(".newBox");
+    makeBoxesFillable(newBoxes);
 }
-
-let newBoxes = document.querySelectorAll(".newBox");
-
-for (let newBox of newBoxes) {
-    newBox.addEventListener("mouseenter", () => newBox.style.backgroundColor = "blue");
+    
+function makeBoxesFillable(newBoxes) {
+    for (let newBox of newBoxes) {
+        newBox.addEventListener("mouseenter", () => newBox.style.backgroundColor = "blue");
+    }
 }
