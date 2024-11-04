@@ -16,10 +16,8 @@ body {
     margin: 0 auto;
 }
 
-.reset {
+.reset, .clear {
     padding: 10px 15px 8px 15px;
-    background-color: black;
-    color: white;
     border: 1px solid black;
     margin-bottom: 15px;
     font-weight: bold;
@@ -27,9 +25,19 @@ body {
     letter-spacing: 2px;
 }
 
-.reset:hover {
+.clear {
     background-color: white;
     color: black;
+}
+
+.reset {
+    background-color: black;
+    color: white;
+}
+
+.reset:hover, .clear:hover {
     border: 1px solid black;
     cursor: pointer;
+    background-color: rgb(246, 255, 0);
+    color: black;
 }
