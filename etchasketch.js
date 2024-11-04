@@ -42,9 +42,12 @@ function drawBoxes(numberOfBoxes = 16) {
 }
     
 function makeBoxesFillable(newBoxes) {
+    let r = Math.floor(Math.random() * 255);
+    let g = Math.floor(Math.random() * 255);
+    let b = Math.floor(Math.random() * 255);
     for (let newBox of newBoxes) {
         newBox.addEventListener("mouseenter", () => {
-            newBox.style.backgroundColor = `rgb(0, 0, 0)`;
+            newBox.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 
             if (newBox.style.opacity < 1) {
                 newBox.style.opacity = +newBox.style.opacity + 0.1;
